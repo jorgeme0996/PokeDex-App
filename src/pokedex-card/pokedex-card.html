@@ -94,16 +94,16 @@
 
             battle() {
                let battle = Math.floor((Math.random() * 2) + 1);
-               let winBattle = 'W';
-               let loseBattle = 'L';
+               let result = '';
 
                if (battle === 1){
-                    this.pokemon.battles.push(winBattle);
+                   result = 'W';
                 } else {
-                    this.pokemon.battles.push(loseBattle);
+                    result = 'L';
                 }
 
-                console.log(this.pokemon.battles);
+                this.pokemon.battles.push(result);
+                this.set('pokemon', Object.assign({}, this.pokemon));
             }
         }
 
