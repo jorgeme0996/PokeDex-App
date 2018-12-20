@@ -1,0 +1,46 @@
+{
+    "pokemons": [
+        {
+            "name": "Bulbasour",
+            "image": "https://seeklogo.com/images/B/bulbasaur-logo-8A27924C02-seeklogo.com.png",
+            "battles": ["W", "L", "W", "L"],
+            "type": "Plant",
+            "capture": false
+          },
+          {
+            "name": "Charmander",
+            "image": "https://lh5.googleusercontent.com/proxy/DGXf-CQhWKcvi1iwmRrZTyuGs49xsCde0HPcRRRej9ftLCZzRwKZhScz8nYqvPlaGWT_zroObUAbJM9U54QT2ag2a_FrEonm2CCTRnT3ebbuPGxB5mA0XA3PNxF2YiB9mQ=w261-h300-nc",
+            "battles": ["L", "L", "W", "L"],
+            "type": "Fire",
+            "capture": false
+          },
+          {
+            "name": "Squirtle",
+            "image": "https://seeklogo.com/images/S/squirtle-logo-4EA3D6011D-seeklogo.com.png",
+            "battles": ["L", "W", "W", "W"],
+            "type": "Water",
+            "capture": false
+          },
+          {
+            "name": "Squirtle",
+            "image": "https://seeklogo.com/images/S/squirtle-logo-4EA3D6011D-seeklogo.com.png",
+            "battles": ["L", "W", "W", "W"],
+            "type": "Water",
+            "capture": false
+          },
+          {
+            "name": "Squirtle",
+            "image": "https://seeklogo.com/images/S/squirtle-logo-4EA3D6011D-seeklogo.com.png",
+            "battles": ["L", "W", "W", "W"],
+            "type": "Water",
+            "capture": false
+          },
+          {
+            "name": "Squirtle",
+            "image": "https://seeklogo.com/images/S/squirtle-logo-4EA3D6011D-seeklogo.com.png",
+            "battles": ["L", "W", "W", "W"],
+            "type": "Water",
+            "capture": false
+          }
+    ]
+}

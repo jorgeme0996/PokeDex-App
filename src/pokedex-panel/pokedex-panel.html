@@ -11,7 +11,7 @@
             }
         </style>
 
-        <dom-repeat items="[[pokemons]]" as="pokemon">
+        <dom-repeat items="[[pokemons]]" as="pokemon" filter="{{_filterPokemons(search)}}">
             <template>
                 <pokedex-card class="card" pokemon="[[pokemon]]"></pokedex-card>
             </template> 
@@ -26,7 +26,19 @@
                     pokemons: {
                         type: Array,
                         value: []
-                    }  
+                    }, 
+                    search: {
+                        type: String,
+                        value: ''
+                    }
+                }
+            }
+
+            _filterPokemons(searchString) {
+                if (!searchString) 
+                    return null
+                return function (pokemon) {
+                    return pokemon.name.toLowerCase().includes(searchString)
                 }
             }
         }

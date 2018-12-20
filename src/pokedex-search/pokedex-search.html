@@ -1,0 +1,61 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../bower_components/paper-input/paper-input.html">
+
+<dom-module id="pokedex-search">
+    <template>
+        <style>
+            :host{
+                display: block;
+                --paper-input-container-color: black;
+                --paper-input-container-focus-color: #6A1B9A;
+            }
+            article {
+                margin-bottom: 4%;
+                margin-top: 4%;
+               
+            }
+            paper-input {
+                margin-left: 10%;
+                width: 70%;
+            }
+            paper-input:hover {
+                transform: scale(1.1);
+            }
+            paper-input:focus{
+                transform: scale(1.1);
+            }
+        </style>
+
+        <article>
+            <paper-input label="Search" value="{{search}}"></paper-input>
+        </article>
+
+    </template>
+
+
+    <script>
+        class PokeDeckSearch extends Polymer.Element{
+            static get is() { return 'pokedex-search'}
+            static get properties() {
+                return {
+                    search: {
+                        type: String,
+                        value: '',
+                        observer: '_changeSearch'
+                    }  
+                }
+            }
+
+            _changeSearch(){
+                const customEvent = new CustomEvent('search-init', {
+                    detail: {
+                        search: this.search
+                    }
+                })
+                this.dispatchEvent(customEvent);
+            }
+        }
+
+        window.customElements.define(PokeDeckSearch.is, PokeDeckSearch);
+    </script>
+</dom-module>
