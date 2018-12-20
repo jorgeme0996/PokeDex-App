@@ -1,0 +1,88 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../pokedex-panel/pokedex-panel.html">
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+<dom-module id="pokedex-app">
+  <template>
+    <style>
+      :host {
+        display: block;
+        font-family: 'Roboto';
+      }
+      div.container {
+        padding: 2%;
+      }
+    </style>
+    <div class="container">
+    <h1>Pokedex App</h1>
+      <paper-input label="Search" auto-validate pattern="[a-zA-Z]*" error-message="Por favor solo letras"></paper-input>
+      <pokedex-panel pokemons="[[pokemons]]"></pokedex-panel>
+    </div>
+  </template>
+
+  <script>
+    /**
+     * @customElement
+     * @polymer
+     */
+    class PokedexApp extends Polymer.Element {
+      static get is() { return 'pokedex-app'; }
+      static get properties() {
+        return {
+          pokemons: {
+            type: Array,
+            value: function () {
+              return [
+                {
+                  name: 'Bulbasour',
+                  image: 'https://seeklogo.com/images/B/bulbasaur-logo-8A27924C02-seeklogo.com.png',
+                  battles: ['W', 'L', 'W', 'L'],
+                  type: 'Plant',
+                  capture: false,
+                },
+                {
+                  name: 'Charmander',
+                  image: 'https://lh5.googleusercontent.com/proxy/DGXf-CQhWKcvi1iwmRrZTyuGs49xsCde0HPcRRRej9ftLCZzRwKZhScz8nYqvPlaGWT_zroObUAbJM9U54QT2ag2a_FrEonm2CCTRnT3ebbuPGxB5mA0XA3PNxF2YiB9mQ=w261-h300-nc',
+                  battles: ['L', 'L', 'W', 'L'],
+                  type: 'Fire',
+                  capture: false,
+                },
+                {
+                  name: 'Squirtle',
+                  image: 'https://seeklogo.com/images/S/squirtle-logo-4EA3D6011D-seeklogo.com.png',
+                  battles: ['L', 'W', 'W', 'W'],
+                  type: 'Water',
+                  capture: false,
+                },
+                {
+                  name: 'Squirtle',
+                  image: 'https://seeklogo.com/images/S/squirtle-logo-4EA3D6011D-seeklogo.com.png',
+                  battles: ['L', 'W', 'W', 'W'],
+                  type: 'Water',
+                  capture: false,
+                },
+                {
+                  name: 'Squirtle',
+                  image: 'https://seeklogo.com/images/S/squirtle-logo-4EA3D6011D-seeklogo.com.png',
+                  battles: ['L', 'W', 'W', 'W'],
+                  type: 'Water',
+                  capture: false,
+                },
+                {
+                  name: 'Squirtle',
+                  image: 'https://seeklogo.com/images/S/squirtle-logo-4EA3D6011D-seeklogo.com.png',
+                  battles: ['L', 'W', 'W', 'W'],
+                  type: 'Water',
+                  capture: false,
+                },
+              ]
+            }
+          }
+        }
+      }
+    }
+
+    window.customElements.define(PokedexApp.is, PokedexApp);
+  </script>
+</dom-module>

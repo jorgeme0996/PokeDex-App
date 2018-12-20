@@ -1,0 +1,36 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../pokedex-card/pokedex-card.html">
+
+<dom-module id="pokedex-panel">
+    <template>
+        <style>
+            :host {
+               display: flex;
+               justify-content: space-around;
+               flex-flow: row wrap;
+            }
+        </style>
+
+        <dom-repeat items="[[pokemons]]" as="pokemon">
+            <template>
+                <pokedex-card class="card" pokemon="[[pokemon]]"></pokedex-card>
+            </template> 
+        </dom-repeat>
+               
+    </template>
+    <script>
+        class PokedexPanel extends Polymer.Element {
+            static get is() { return 'pokedex-panel';}
+            static get properties() {
+                return {
+                    pokemons: {
+                        type: Array,
+                        value: []
+                    }  
+                }
+            }
+        }
+
+        window.customElements.define(PokedexPanel.is, PokedexPanel);
+    </script>
+</dom-module>

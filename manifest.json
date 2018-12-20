@@ -1,0 +1,7 @@
+{
+  "name": "pokedex-app",
+  "short_name": "pokedex-app",
+  "description": "An app to see all Pokemons",
+  "start_url": "/",
+  "display": "standalone"
+}

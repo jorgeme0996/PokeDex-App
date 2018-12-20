@@ -1,0 +1,112 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+
+<dom-module id="pokedex-card">
+    <template>
+        <style>
+            :host {
+                display: flex;
+            }
+            paper-card {
+                width: 250px;
+                margin: 2%;
+            }
+
+            paper-button {
+                color: white;
+            }
+
+            paper-button.battle {
+                background-color: #5D4037;
+            }
+
+            paper-button.more {
+                background-color: #1B5E20;
+            }
+        </style>
+        
+        <paper-card image="[[pokemon.image]]" style$="background-color: [[coloWithType]]">
+            <div class="card-content">
+                <h2>[[pokemon.name]]</h2>
+                <p><strong>[[battlesStats]]</strong></p>
+            </div>
+            <div class="card-actions">
+                <paper-button class="battle" on-click="battle">Battle!!</paper-button>
+                <paper-button class="more">More</paper-button>
+            </div>
+        </paper-card>
+
+    </template>
+
+    <script>
+        class PokedexCard extends Polymer.Element {
+            static get is() { return 'pokedex-card'; }
+            static get properties() {
+                return {
+                    pokemon: {
+                        type: Object,
+                        value: {}
+                    },
+
+                    coloWithType: {
+                        type: String,
+                        computed: "_changeColorWithType(pokemon)"
+                    },
+
+                    battlesStats: {
+                        type: String,
+                        computed: "_getBattleStats(pokemon)"
+                    }
+                }
+            }
+
+            _changeColorWithType(pokemon) {
+                let color = '';
+
+                if(pokemon.type === 'Plant') {
+                    color = '#CDDC39'
+                } else if (pokemon.type == 'Fire') {
+                    color = '#FF5722'
+                } else if (pokemon.type == 'Water') {
+                    color = '#1565C0'
+                }
+                return color
+            }
+
+            _getBattleStats(pokemon) {
+                let wins = 0
+                let loses = 0
+                let battles = pokemon.battles
+                var text = ''
+                for (let i = 0; i<=battles.length; i++) {
+                
+                if (battles[i] == 'W'){
+                    wins ++;
+                } else if (battles[i] == 'L'){
+                    loses ++;
+                }
+                }
+                text ='Battle Stats: Win ' + wins + ' Lose ' + loses
+                
+                return text; 
+            }
+
+            battle() {
+               let battle = Math.floor((Math.random() * 2) + 1);
+               let winBattle = 'W';
+               let loseBattle = 'L';
+
+               if (battle === 1){
+                    this.pokemon.battles.push(winBattle);
+                } else {
+                    this.pokemon.battles.push(loseBattle);
+                }
+
+                console.log(this.pokemon.battles);
+            }
+        }
+
+        window.customElements.define(PokedexCard.is, PokedexCard);
+    </script>
+</dom-module>
